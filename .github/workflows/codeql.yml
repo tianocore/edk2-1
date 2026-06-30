@@ -15,9 +15,11 @@ on:
   push:
     branches:
       - master
+      - merge_queues
   pull_request:
     branches:
       - master
+      - merge_queues
     paths-ignore:
       - '!**.c'
       - '!**.h'

@@ -12,6 +12,7 @@ trigger:
   branches:
     include:
     - gh-readonly-queue/master/*
+    - gh-readonly-queue/merge_queues/*
 
 schedules:
 - cron: "0 5 * * *"
@@ -20,11 +21,13 @@ schedules:
     include:
     - master
     - stable/*
+    - merge_queues
   always: true
 
 pr:
   - master
   - stable/*
+  - merge_queues
 
 variables:
   - template: ../../../.azurepipelines/templates/defaults.yml

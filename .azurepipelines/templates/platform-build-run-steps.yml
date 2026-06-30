@@ -71,7 +71,7 @@ steps:
   displayName: fetch target branch
   condition: eq(variables['Build.Reason'], 'PullRequest')
 
-- script: git fetch origin master
+- script: git fetch origin merge_queues
   displayName: fetch target branch (merge queue)
   condition: eq(variables['Build.Reason'], 'IndividualCI')
 
@@ -88,7 +88,7 @@ steps:
   displayName: Check if ${{ parameters.build_pkg }} need testing (merge queue)
   inputs:
     script: |
-      stuart_pr_eval -c ${{ parameters.build_file }} -t ${{ parameters.build_target}} -a ${{ parameters.build_arch}} --pr-target origin/master --output-count-format-string "##vso[task.setvariable variable=pkg_count;isOutpout=true]{pkgcount}"
+      stuart_pr_eval -c ${{ parameters.build_file }} -t ${{ parameters.build_target}} -a ${{ parameters.build_arch}} --pr-target origin/merge_queues --output-count-format-string "##vso[task.setvariable variable=pkg_count;isOutpout=true]{pkgcount}"
   condition: eq(variables['Build.Reason'], 'IndividualCI')
 
  # Setup repo

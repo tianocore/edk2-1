@@ -15,6 +15,7 @@ schedules:
     include:
     - master
     - stable/*
+    - merge_queues
   always: true
 
 pr: none

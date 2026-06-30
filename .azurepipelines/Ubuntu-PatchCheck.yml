@@ -16,10 +16,12 @@ trigger:
   branches:
     include:
     - gh-readonly-queue/master/*
+    - gh-readonly-queue/merge_queues/*
 
 pr:
 - master
 - stable/*
+- merge_queues
 
 pool:
   vmImage: 'ubuntu-latest'
